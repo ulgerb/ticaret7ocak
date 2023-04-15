@@ -25,10 +25,12 @@ urlpatterns = [
     path('About/',About , name='About'),
     path('Contact/',Contact , name='Contact'),
     path('Shop/',shopPage , name='shopPage'),
-    path('Detail/', Detail, name='Detail'),
+    path('Detail/<id>/', Detail, name='Detail'),
     # USER=======================
     path('basket/', basketUser, name='basketUser'),
+    path('basketDelete/<id>/', basketDeleteUser, name='basketDeleteUser'),
     path('login/', loginUser, name='loginUser'),
     path('register/', registerUser, name='registerUser'),
+    path('logout/', logoutUser, name='logoutUser'),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
