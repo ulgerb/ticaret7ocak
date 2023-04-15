@@ -1,6 +1,10 @@
 from .models import Basket
 
 def basketsLength(request):
-   baskets = Basket.objects.filter(user=request.user)
+   if request.user.is_authenticated:
+      baskets = Basket.objects.filter(user=request.user)
+   else:
+      baskets = []
    
    return {"basketsLength":len(baskets)}
+
